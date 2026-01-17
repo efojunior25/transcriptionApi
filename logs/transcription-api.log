@@ -1,0 +1,59 @@
+2026-01-17T13:09:39.435-03:00  INFO 11788 --- [restartedMain] c.x.t.TranscriptionApiApplication        : Starting TranscriptionApiApplication using Java 17.0.14 with PID 11788 (C:\Users\edson\OneDrive\Documentos\Profissional\Portifolio\transcription-api\target\classes started by edson in C:\Users\edson\OneDrive\Documentos\Profissional\Portifolio\transcription-api)
+2026-01-17T13:09:39.438-03:00  INFO 11788 --- [restartedMain] c.x.t.TranscriptionApiApplication        : No active profile set, falling back to 1 default profile: "default"
+2026-01-17T13:09:39.474-03:00  INFO 11788 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-01-17T13:09:39.475-03:00  INFO 11788 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-01-17T13:09:40.098-03:00  INFO 11788 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-17T13:09:40.134-03:00  INFO 11788 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 1 JPA repository interface.
+2026-01-17T13:09:40.546-03:00  INFO 11788 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-01-17T13:09:40.557-03:00  INFO 11788 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-01-17T13:09:40.557-03:00  INFO 11788 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-01-17T13:09:40.587-03:00  INFO 11788 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1112 ms
+2026-01-17T13:09:40.703-03:00  INFO 11788 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-01-17T13:09:40.761-03:00  INFO 11788 --- [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.0.Final
+2026-01-17T13:09:41.110-03:00  INFO 11788 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-17T13:09:41.136-03:00  INFO 11788 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariTranscriptionPool - Starting...
+2026-01-17T13:09:41.304-03:00  INFO 11788 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariTranscriptionPool - Added connection com.mysql.cj.jdbc.ConnectionImpl@582bc63e
+2026-01-17T13:09:41.305-03:00  INFO 11788 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariTranscriptionPool - Start completed.
+2026-01-17T13:09:41.364-03:00  WARN 11788 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-17T13:09:41.377-03:00  INFO 11788 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/transcription_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.4
+	Default catalog/schema: transcription_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-17T13:09:42.166-03:00  INFO 11788 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-17T13:09:42.230-03:00  INFO 11788 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-17T13:09:42.291-03:00  INFO 11788 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-17T13:09:42.436-03:00  INFO 11788 --- [restartedMain] c.x.t.config.StartupValidator            : 🔍 Validando configurações da aplicação...
+2026-01-17T13:09:42.436-03:00  INFO 11788 --- [restartedMain] c.x.t.config.StartupValidator            : ✅ API Key da aplicação configurada (chavedet...)
+2026-01-17T13:09:42.436-03:00  INFO 11788 --- [restartedMain] c.x.t.config.StartupValidator            : ✅ OpenAI API Key configurada (sk-...0y4A})
+2026-01-17T13:09:43.496-03:00  INFO 11788 --- [restartedMain] c.x.t.config.StartupValidator            : ✅ FFmpeg disponível: ffmpeg version 2026-01-14-git-6c878f8b82-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers
+2026-01-17T13:09:43.500-03:00  INFO 11788 --- [restartedMain] c.x.t.config.StartupValidator            : ✅ Diretório de uploads configurado: uploads
+2026-01-17T13:09:43.500-03:00  INFO 11788 --- [restartedMain] c.x.t.config.StartupValidator            : ✅ Configuração de banco de dados presente
+2026-01-17T13:09:43.500-03:00  WARN 11788 --- [restartedMain] c.x.t.config.StartupValidator            : ═══════════════════════════════════════════════════
+2026-01-17T13:09:43.501-03:00  WARN 11788 --- [restartedMain] c.x.t.config.StartupValidator            : ⚠️ AVISOS DE CONFIGURAÇÃO:
+2026-01-17T13:09:43.501-03:00  WARN 11788 --- [restartedMain] c.x.t.config.StartupValidator            : ⚠️ API Key muito curta (< 32 caracteres). Recomendado: 64+ caracteres
+2026-01-17T13:09:43.501-03:00  WARN 11788 --- [restartedMain] c.x.t.config.StartupValidator            : ═══════════════════════════════════════════════════
+2026-01-17T13:09:43.501-03:00  INFO 11788 --- [restartedMain] c.x.t.config.StartupValidator            : ═══════════════════════════════════════════════════
+2026-01-17T13:09:43.501-03:00  INFO 11788 --- [restartedMain] c.x.t.config.StartupValidator            : ✅ TODAS AS CONFIGURAÇÕES VALIDADAS COM SUCESSO!
+2026-01-17T13:09:43.501-03:00  INFO 11788 --- [restartedMain] c.x.t.config.StartupValidator            : ═══════════════════════════════════════════════════
+2026-01-17T13:09:43.677-03:00  WARN 11788 --- [restartedMain] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: da713d10-1acd-4cc1-8260-82bdc1e7b579
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-01-17T13:09:43.681-03:00  INFO 11788 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-01-17T13:09:44.065-03:00  INFO 11788 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-01-17T13:09:44.071-03:00  INFO 11788 --- [restartedMain] c.x.t.TranscriptionApiApplication        : Started TranscriptionApiApplication in 5.073 seconds (process running for 5.773)
+2026-01-17T13:11:01.128-03:00  INFO 11788 --- [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-17T13:11:01.161-03:00  INFO 11788 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-01-17T13:11:01.165-03:00  INFO 11788 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-17T13:11:01.169-03:00  INFO 11788 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariTranscriptionPool - Shutdown initiated...
+2026-01-17T13:11:01.175-03:00  INFO 11788 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariTranscriptionPool - Shutdown completed.
