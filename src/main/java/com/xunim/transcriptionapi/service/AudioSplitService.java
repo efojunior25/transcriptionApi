@@ -1,14 +1,18 @@
 package com.xunim.transcriptionapi.service;
 
+import com.xunim.transcriptionapi.exception.AudioProcessingException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -23,7 +27,7 @@ public class AudioSplitService {
             File inputFile = new File(inputFilePath);
 
             if (!inputFile.exists()) {
-                throw new IllegalArgumentException("Arquivo de áudio não encontrado");
+                throw new AudioProcessingException("Arquivo de áudio não encontrado: " + inputFilePath);
             }
 
             String baseName = inputFile.getName().replaceFirst("\\.[^.]+$", "");
@@ -35,7 +39,7 @@ public class AudioSplitService {
             Path outputPattern = outputDir.resolve(baseName + "_%03d.m4a");
 
             List<String> command = List.of(
-                    ffmpegPath,               // usa PATH ou caminho absoluto
+                    ffmpegPath,
                     "-y",
                     "-i", inputFile.getAbsolutePath(),
                     "-f", "segment",
@@ -50,27 +54,48 @@ public class AudioSplitService {
             processBuilder.redirectErrorStream(true);
 
             Process process = processBuilder.start();
+
+            // Captura saída do FFmpeg para debugging
+            String output = captureProcessOutput(process);
+
             int exitCode = process.waitFor();
 
             if (exitCode != 0) {
-                throw new RuntimeException("FFmpeg retornou código: " + exitCode);
+                log.error("FFmpeg falhou com código {}: {}", exitCode, output);
+                throw new AudioProcessingException(
+                        "Falha ao processar áudio. Verifique se o arquivo está corrompido."
+                );
             }
 
             List<Path> chunks = new ArrayList<>();
             Files.list(outputDir)
                     .filter(p -> p.toString().endsWith(".m4a"))
+                    .sorted()
                     .forEach(chunks::add);
 
             if (chunks.isEmpty()) {
-                throw new RuntimeException("Nenhum chunk gerado");
+                throw new AudioProcessingException(
+                        "Nenhum chunk gerado. O arquivo pode estar corrompido ou muito curto."
+                );
             }
 
             log.info("Áudio dividido em {} partes", chunks.size());
             return chunks;
 
+        } catch (AudioProcessingException e) {
+            throw e; // Re-lança exceções já tratadas
         } catch (Exception e) {
-            log.error("Erro ao dividir áudio com FFmpeg", e);
-            throw new RuntimeException("Falha ao dividir áudio", e);
+            log.error("Erro inesperado ao dividir áudio", e);
+            throw new AudioProcessingException("Erro ao processar arquivo de áudio", e);
+        }
+    }
+
+    private String captureProcessOutput(Process process) {
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(process.getInputStream()))) {
+            return reader.lines().collect(Collectors.joining("\n"));
+        } catch (Exception e) {
+            return "";
         }
     }
 }
